@@ -1,0 +1,141 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "home.Home",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "home.Home.view.View1",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.60.1",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "home.Home.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "home.Home.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "RouteView1",
+					"pattern": "RouteView1",
+					"target": [
+						"Master",
+						"Detail"
+					]
+				},
+				{
+					"name": "",
+					"pattern": "",
+					"target": [
+						"Master",
+						"Detail"
+					]
+				},
+				{
+					"name": "main",
+					"pattern": "main",
+					"target": [
+						"Master",
+						"Detail"
+					]
+				}
+			],
+			"targets": {
+				"TargetView1": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "View1",
+					"viewName": "View1",
+					"viewLevel": 2,
+					"viewPath": "home.Home.view"
+				},
+				"Main": {
+					"viewType": "XML",
+					"viewName": "Main",
+					"viewLevel": 2,
+					"viewPath": "home.Home.view"
+				}
+				,
+				"Master": {
+					"viewType": "XML",
+					"viewName": "Master",
+					"parent": "Main",
+					"controlId": "idAppControl",
+					"viewPath": "home.Home.view",
+					"controlAggregation": "masterPages"
+				}
+				,
+				"Detail": {
+					"viewType": "XML",
+					"viewName": "Detail",
+					"parent": "Main",
+					"controlId": "idAppControl",
+					"viewPath": "home.Home.view",
+					"controlAggregation": "detailPages"
+				}
+			}
+		}
+	}
+}
